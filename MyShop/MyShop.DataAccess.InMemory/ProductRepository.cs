@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Caching;
-using MyShop.Core;
 using MyShop.Core.Models;
 
 namespace MyShop.DataAccess.InMemory
@@ -17,7 +16,7 @@ namespace MyShop.DataAccess.InMemory
         public ProductRepository()
         {
             products = cache["products"] as List<Product>;
-            if(products == null)
+            if (products == null)
             {
                 products = new List<Product>();
             }
@@ -59,9 +58,9 @@ namespace MyShop.DataAccess.InMemory
             {
                 throw new Exception("Product not found");
             }
-        } 
+        }
 
-        public IQueryable<Product>Collection()
+        public IQueryable<Product> Collection()
         {
             return products.AsQueryable();
         }
